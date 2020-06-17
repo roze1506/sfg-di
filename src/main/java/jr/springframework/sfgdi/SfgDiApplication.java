@@ -12,7 +12,6 @@ public class SfgDiApplication {
 		ApplicationContext context = SpringApplication.run(SfgDiApplication.class, args);
 
 		I18nController i18nController = (I18nController)context.getBean("i18nController");
-		System.out.println("----------------- I18nDutchController");
 		System.out.println(i18nController.zegHallo());
 
 		MyController myController = (MyController)context.getBean("myController");
