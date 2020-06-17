@@ -1,11 +1,10 @@
 package jr.springframework.sfgdi.controllers;
 
-import jr.springframework.sfgdi.services.GreetingService;
-import jr.springframework.sfgdi.services.GreetingServiceImpl;
+import jr.springframework.sfgdi.services.ConstructorGreetingService;
+import jr.springframework.sfgdi.services.PropertyInjectedGreetingService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.util.ReflectionTestUtils;
 
 public class PropertyInjectedControllerTest {
@@ -14,11 +13,11 @@ public class PropertyInjectedControllerTest {
     @BeforeEach
     public void setUp() {
         controller = new PropertyInjectedController();
-        ReflectionTestUtils.setField(controller, "greetingService", new GreetingServiceImpl());
+        ReflectionTestUtils.setField(controller, "greetingService", new PropertyInjectedGreetingService());
     }
 
     @Test
     public void testKrijgGroet() {
-        Assertions.assertThat(controller.krijgGroet()).isEqualTo("Hallo Wereld!");
+        Assertions.assertThat(controller.krijgGroet()).isEqualTo("Hallo Wereld vanuit Property!");
     }
 }
