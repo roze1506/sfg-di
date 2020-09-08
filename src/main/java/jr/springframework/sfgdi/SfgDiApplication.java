@@ -1,9 +1,6 @@
 package jr.springframework.sfgdi;
 
-import jr.springframework.sfgdi.controllers.ConstructorInjectedController;
 import jr.springframework.sfgdi.controllers.MyController;
-import jr.springframework.sfgdi.controllers.PropertyInjectedController;
-import jr.springframework.sfgdi.controllers.SetterBasedController;
 import jr.springframework.sfgdi.examplebeans.DataSource;
 import jr.springframework.sfgdi.examplebeans.JmsBroker;
 import org.springframework.boot.SpringApplication;
