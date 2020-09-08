@@ -5,6 +5,7 @@ import jr.springframework.sfgdi.controllers.MyController;
 import jr.springframework.sfgdi.controllers.PropertyInjectedController;
 import jr.springframework.sfgdi.controllers.SetterBasedController;
 import jr.springframework.sfgdi.examplebeans.DataSource;
+import jr.springframework.sfgdi.examplebeans.JmsBroker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -18,10 +19,17 @@ public class SfgDiApplication {
 		MyController myController = (MyController)context.getBean("myController");
 
 		DataSource dataSource = context.getBean(DataSource.class);
+		JmsBroker jmsBroker = context.getBean(JmsBroker.class);
 
+		System.out.println("-----------------------------------------------------");
 		System.out.println("Gebruikersnaam: " + dataSource.getGebruikersnaam());
 		System.out.println("Wachtwoord: " + dataSource.getWachtwoord());
 		System.out.println("Database URL: " + dataSource.getUrl());
+		System.out.println("-----------------------------------------------------");
+		System.out.println("JMS Gebruikersnaam: " + jmsBroker.getGebruikersnaam());
+		System.out.println("JMS Wachtwoord: " + jmsBroker.getWachtwoord());
+		System.out.println("JMS Database URL: " + jmsBroker.getUrl());
+		System.out.println("-----------------------------------------------------");
 	}
 
 }
