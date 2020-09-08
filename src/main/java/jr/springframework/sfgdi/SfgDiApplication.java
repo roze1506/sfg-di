@@ -4,6 +4,7 @@ import jr.springframework.sfgdi.controllers.ConstructorInjectedController;
 import jr.springframework.sfgdi.controllers.MyController;
 import jr.springframework.sfgdi.controllers.PropertyInjectedController;
 import jr.springframework.sfgdi.controllers.SetterBasedController;
+import jr.springframework.sfgdi.examplebeans.DataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,23 +16,12 @@ public class SfgDiApplication {
 		ApplicationContext context = SpringApplication.run(SfgDiApplication.class, args);
 
 		MyController myController = (MyController)context.getBean("myController");
-		System.out.println("----------------- Primary Bean");
-		System.out.println(myController.zegHallo());
 
-		System.out.println("----------------- Property");
-		PropertyInjectedController propertyInjectedController =
-				(PropertyInjectedController) context.getBean("propertyInjectedController");
-		System.out.println(propertyInjectedController.krijgGroet());
+		DataSource dataSource = context.getBean(DataSource.class);
 
-		System.out.println("----------------- Setter");
-		SetterBasedController setterBasedController =
-				(SetterBasedController) context.getBean("setterBasedController");
-		System.out.println(setterBasedController.krijgGroet());
-
-		System.out.println("----------------- Constructor");
-		ConstructorInjectedController constructorInjectedController =
-				(ConstructorInjectedController) context.getBean("constructorInjectedController");
-		System.out.println(constructorInjectedController.krijgGroet());
+		System.out.println("Gebruikersnaam: " + dataSource.getGebruikersnaam());
+		System.out.println("Wachtwoord: " + dataSource.getWachtwoord());
+		System.out.println("Database URL: " + dataSource.getUrl());
 	}
 
 }
