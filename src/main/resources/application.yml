@@ -1,3 +1,6 @@
+spring:
+  profiles:
+    active: nl
 jr:
   gebruikersnaam: Jeffrey
   wachtwoord: eenwachtwoord
@@ -6,3 +9,10 @@ jr:
     gebruikersnaam: GebruikerJMS
     wachtwoord: eenanderwachtwoord
     dburl: nanananananana
+
+---
+spring:
+  profiles: nl
+jr:
+  jms:
+    gebruikersnaam: Ajax
