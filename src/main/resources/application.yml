@@ -1,0 +1,8 @@
+jr:
+  gebruikersnaam: Jeffrey
+  wachtwoord: eenwachtwoord
+  dburl: kukukechu
+  jms:
+    gebruikersnaam: GebruikerJMS
+    wachtwoord: eenanderwachtwoord
+    dburl: nanananananana
